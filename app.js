@@ -3,7 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const date = require(__dirname+'/date.js');
-const PORT = 3000 || process.env.PORT; // 3000 port runs always on local host but process.env.port will get any free port on internet server and then will run on that port.
+const PORT = process.env.PORT || 3000; // 3000 port runs always on local host but process.env.port will get any free port on internet server and then will run on that port.
 
 const app = express(); // creating a simple constant variable for the express server to run with more english meaning.
 
