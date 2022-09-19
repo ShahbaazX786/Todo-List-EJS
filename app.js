@@ -34,7 +34,7 @@ app.get("/", function(req,res){
 
     var day=today.toLocaleDateString("en-US",options); //this is modern date string function which i just customized using options parameter.
 
-    res.render("list", {dayofweek:day,task:newTask});
+    res.render("list", {dayofweek:day,taskArray:task_array});
 });
 
 

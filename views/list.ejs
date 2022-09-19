@@ -11,8 +11,9 @@
         <!-- <h1>Today is <%= dayofweek %>!</h1> -->
         <h1><%= dayofweek %></h1>
         <ul>
-            <li>1</li>
-            <li><%= task %></li>
+            <% for(var i=0;i<taskArray.length;i++){ %>
+                <li><%= taskArray[i] %></li>
+        <%  } %>
         </ul>
         <form action="/" method="post">
             <input type="text" name="task">
