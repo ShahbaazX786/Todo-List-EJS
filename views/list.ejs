@@ -1,9 +1,8 @@
 <%- include("header") -%>
 
 <div class="box" id="heading">
-    <h1>
-        <%= list_title %> list
-    </h1>
+    <h1><%= list_title %> list</h1>
+    <h1>Today is <%= dayofweek %></h1>
 </div>
 <div class="box">
     <% for(var i=0;i<taskArray.length;i++){ %>
