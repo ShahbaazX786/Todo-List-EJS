@@ -5,6 +5,12 @@ html {
     font-family: 'helvetica neue';
 }
 
+.black{
+    color: black;
+    text-align: center;
+    margin: 10% 0;
+}
+
 h1 {
     color: #fff;
     padding: 10px;

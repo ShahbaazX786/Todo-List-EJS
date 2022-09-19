@@ -71,6 +71,10 @@ app.post('/work',function(req,res){
 
 
 
+app.get('/about',function(req,res){
+    res.render('about');
+})
+
 
 app.listen(PORT,function(){
     console.log("server started on port "+PORT+" bro!");
