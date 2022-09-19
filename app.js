@@ -6,7 +6,18 @@ const PORT = 3000 || process.env.PORT; // 3000 port runs always on local host bu
 
 const app = express(); // creating a simple constant variable for the express server to run with more english meaning.
 
+app.use(bodyParser.urlencoded({extended:true}));
+
+
 app.set("view engine", "ejs"); // this command sets the default view engine to ejs so that it can fetch the list.ejs file from the views folder. list.ejs is just an ordinary filename you can use whatever name you want, most people use index.ejs.
+
+
+
+
+var task_array=[];
+var newTask="";
+
+
 
 
 app.get("/", function(req,res){
@@ -23,8 +34,25 @@ app.get("/", function(req,res){
 
     var day=today.toLocaleDateString("en-US",options); //this is modern date string function which i just customized using options parameter.
 
-    res.render("list", {dayofweek:day});
+    res.render("list", {dayofweek:day,task:newTask});
 });
+
+
+
+
+
+
+app.post('/',function(req,res){
+    newTask=req.body.task;
+    task_array.push(newTask);
+    res.redirect('/');
+})
+
+
+
+
+
+
 
 
 app.listen(PORT,function(){

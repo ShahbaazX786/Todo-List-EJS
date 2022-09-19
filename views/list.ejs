@@ -10,13 +10,14 @@
     <div class="container">
         <!-- <h1>Today is <%= dayofweek %>!</h1> -->
         <h1><%= dayofweek %></h1>
-        <!-- <ul>
+        <ul>
             <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-        </ul> -->
+            <li><%= task %></li>
+        </ul>
+        <form action="/" method="post">
+            <input type="text" name="task">
+            <button type="submit" name="button">Add task</button>
+        </form>
     </div>
     
 </body>
