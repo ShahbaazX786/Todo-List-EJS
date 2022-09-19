@@ -7,7 +7,7 @@ const PORT = 3000 || process.env.PORT; // 3000 port runs always on local host bu
 const app = express(); // creating a simple constant variable for the express server to run with more english meaning.
 
 app.use(bodyParser.urlencoded({extended:true}));
-
+app.use(express.static("public"));
 
 app.set("view engine", "ejs"); // this command sets the default view engine to ejs so that it can fetch the list.ejs file from the views folder. list.ejs is just an ordinary filename you can use whatever name you want, most people use index.ejs.
 

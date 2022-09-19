@@ -4,20 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
     <title>Todo List made in Embedded Javascript</title>
 </head>
 <body>
-    <div class="container">
+    <div class="box" id="heading">
         <!-- <h1>Today is <%= dayofweek %>!</h1> -->
         <h1><%= dayofweek %></h1>
-        <ul>
-            <% for(var i=0;i<taskArray.length;i++){ %>
-                <li><%= taskArray[i] %></li>
-        <%  } %>
-        </ul>
+    </div>
+    <div class="box">
+        <% for(var i=0;i<taskArray.length;i++){ %>
+            <div class="item">
+                <input type="checkbox">
+                <p><%= taskArray[i] %> </p>
+            </div>
+        <% } %>
+
         <form action="/" method="post">
-            <input type="text" name="task">
-            <button type="submit" name="button">Add task</button>
+            <input type="text" name="task" placeholder="New Task" autocomplete="off" >
+            <button type="submit" name="button">+</button>
         </form>
     </div>
     
