@@ -14,25 +14,25 @@ app.set("view engine", "ejs"); // this command sets the default view engine to e
 
 
 
-var task_array=[];
-var newTask="";
+let task_array=[];
+let newTask="";
 
 
 
 
 app.get("/", function(req,res){
 
-    var today = new Date();
-    var currentDay = today.getDay();
+    const today = new Date();
+    const currentDay = today.getDay();
     // week=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
     
-    var options={
+    let options={
         weekday:"long",
         day:"numeric",
         month:"long"
     };
 
-    var day=today.toLocaleDateString("en-US",options); //this is modern date string function which i just customized using options parameter.
+    const day=today.toLocaleDateString("en-US",options); //this is modern date string function which i just customized using options parameter.
 
     res.render("list", {dayofweek:day,taskArray:task_array});
 });
