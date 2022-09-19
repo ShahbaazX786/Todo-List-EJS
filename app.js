@@ -13,9 +13,17 @@ app.get("/", function(req,res){
 
     var today = new Date();
     var currentDay = today.getDay();
-    week=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    // week=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    
+    var options={
+        weekday:"long",
+        day:"numeric",
+        month:"long"
+    };
 
-    res.render("list", {dayofweek:week[currentDay]});
+    var day=today.toLocaleDateString("en-US",options); //this is modern date string function which i just customized using options parameter.
+
+    res.render("list", {dayofweek:day});
 });
 
 
