@@ -15,42 +15,59 @@ app.set("view engine", "ejs"); // this command sets the default view engine to e
 
 
 let task_array=[];
+let work_array=[];
 let newTask="";
+let title="home";
 
 
 
 
 app.get("/", function(req,res){
 
-    const today = new Date();
-    const currentDay = today.getDay();
-    // week=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    // const today = new Date();
+    // const currentDay = today.getDay();
+    // // week=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
     
-    let options={
-        weekday:"long",
-        day:"numeric",
-        month:"long"
-    };
+    // let options={
+    //     weekday:"long",
+    //     day:"numeric",
+    //     month:"long"
+    // };
 
-    const day=today.toLocaleDateString("en-US",options); //this is modern date string function which i just customized using options parameter.
+    // const day=today.toLocaleDateString("en-US",options); //this is modern date string function which i just customized using options parameter.
 
-    res.render("list", {dayofweek:day,taskArray:task_array});
+    res.render("list", {taskArray:task_array,list_title:title});
 });
-
-
 
 
 
 
 app.post('/',function(req,res){
     newTask=req.body.task;
-    task_array.push(newTask);
-    res.redirect('/');
-})
+    title=req.body.list;
+    if(title === "home"){
+        task_array.push(newTask);
+        res.redirect('/');
+    }
+    else if (title === "work"){
+        work_array.push(newTask);
+        res.redirect('/work');
+    }
+});
 
 
 
+app.get('/work',function(req,res){
+    res.render("list",{list_title:"work",taskArray:work_array});
+});
 
+
+
+app.post('/work',function(req,res){
+    let work_item = req.body.newTask;
+    work_array.push(work_item);
+    res.redirect('/work');
+});
 
 
 

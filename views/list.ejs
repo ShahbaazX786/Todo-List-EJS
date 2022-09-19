@@ -9,8 +9,7 @@
 </head>
 <body>
     <div class="box" id="heading">
-        <!-- <h1>Today is <%= dayofweek %>!</h1> -->
-        <h1><%= dayofweek %></h1>
+        <h1><%= list_title %> list</h1>
     </div>
     <div class="box">
         <% for(var i=0;i<taskArray.length;i++){ %>
@@ -21,8 +20,8 @@
         <% } %>
 
         <form action="/" method="post">
-            <input type="text" name="task" placeholder="New Task" autocomplete="off" >
-            <button type="submit" name="button">+</button>
+            <input type="text" name="task" placeholder="Add a new task here" autocomplete="off" >
+            <button type="submit" name="list" value="<%=list_title %>">+</button>
         </form>
     </div>
     
