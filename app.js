@@ -3,7 +3,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const { text } = require('body-parser');
+const _ = require('lodash');
 const date = require(__dirname+'/date.js');
 const PORT = process.env.PORT || 3000; // 3000 port runs always on local host but process.env.port will get any free port on internet server and then will run on that port.
 
@@ -91,7 +91,7 @@ const List = new mongoose.model("List",listSchema);
 // this will find if there is any list with same name already present in the db, if so, then it will use the same document
 // else it will create a new one and redirects to dynamic route after saving the new dynamic route list name into the db.
 app.get('/:id',function(req,res){
-    const customlistname = req.params.id;
+    const customlistname = _.capitalize(req.params.id);
 
     
     List.findOne({name:customlistname},function(err,resultantlist){
