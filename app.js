@@ -158,8 +158,8 @@ app.post('/delete',function(req,res){
         });
         res.redirect('/');
     }
-    else{
-        List.findOneAndUpdate({name:listName},{$pull:{items:{_id:deletetask}}},function(err,foundList){
+    else{ //we are using findoneandupdate method to update the list item based on id and list name and here the update we do is delete the item from the list.
+        List.findOneAndUpdate({name:listName},{$pull:{items:{_id:deletetask}}},function(err,foundList){ //$pull is a mongodb method which deletes an object from the array of objects(collection).
             if(!err){
                 res.redirect('/'+listName);
             }
