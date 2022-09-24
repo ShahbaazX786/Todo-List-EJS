@@ -29,6 +29,28 @@ const itemsSchema = new mongoose.Schema({
 
 const Item = new mongoose.model("Item",itemsSchema);
 
+const item1 = new Item({
+    name:"Sternritters of Bleach"
+});
+const item2 = new Item({
+    name:"Bankai of Bleach"
+});
+const item3 = new Item({
+    name:"Shikai of Bleach"
+});
+
+const default_Array = [item1,item2,item3];
+
+Item.insertMany(default_Array,function(err){
+    if(err){
+        console.log(err);
+    }
+    else{
+        console.log('Data successfully entered into the DB!');
+    }
+});
+
+
 let task_array=[];
 let work_array=[];
 let newTask="";
