@@ -2,6 +2,7 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 const date = require(__dirname+'/date.js');
 const PORT = process.env.PORT || 3000; // 3000 port runs always on local host but process.env.port will get any free port on internet server and then will run on that port.
 
@@ -12,8 +13,15 @@ app.use(express.static("public")); //this is used to serve static files like sty
 
 app.set("view engine", "ejs"); // this command sets the default view engine to ejs so that it can fetch the list.ejs file from the views folder. list.ejs is just an ordinary filename you can use whatever name you want, most people use index.ejs.
 
-
-
+const URL='mongodb://0.0.0.0:27017/todolistDB';
+mongoose.connect(URL,function(err){
+    if(err){
+        console.log(err);
+    }
+    else{
+        console.log('Connected to the DB Successfully!');
+    }
+});
 
 let task_array=[];
 let work_array=[];
