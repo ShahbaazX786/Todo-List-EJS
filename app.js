@@ -78,35 +78,6 @@ app.get("/", function(req,res){
 
 
 
-//creates a new task in the home route list and redirects to home route(/) to update the task list.
-app.post('/',function(req,res){
-    const newTask=req.body.task;
-    const item = new Item({
-        name:newTask
-    });
-    item.save();
-    res.redirect('/');
-});
-
-
-
-// when this route is called then it checks for the checkboxstatus and if it having any value,
-// then it will delete it from db by using the findByIdAndRemove PaymentMethodChangeEvent.
-app.post('/delete',function(req,res){
-    // console.log(req.body.checkboxstatus);
-    const deletetask = req.body.checkboxstatus;
-    Item.findByIdAndRemove(deletetask,function(err){
-        if(err){
-            console.log(err);
-        }
-        else{
-            console.log('Task deleted sucessfully!');
-        }
-    });
-    res.redirect('/');
-});
-
-
 // temporary schema for dynamic routing and dynamic lists
 const listSchema = new mongoose.Schema({
     name:String,
@@ -137,6 +108,40 @@ List.findOne({name:customlistname},function(err,resultantlist){
         }
     }
 });
+
+
+
+
+
+//creates a new task in the home route list and redirects to home route(/) to update the task list.
+app.post('/',function(req,res){
+    const newTask=req.body.task;
+    const item = new Item({
+        name:newTask
+    });
+    item.save();
+    res.redirect('/');
+});
+
+
+
+// when this route is called then it checks for the checkboxstatus and if it having any value,
+// then it will delete it from db by using the findByIdAndRemove PaymentMethodChangeEvent.
+app.post('/delete',function(req,res){
+    // console.log(req.body.checkboxstatus);
+    const deletetask = req.body.checkboxstatus;
+    Item.findByIdAndRemove(deletetask,function(err){
+        if(err){
+            console.log(err);
+        }
+        else{
+            console.log('Task deleted sucessfully!');
+        }
+    });
+    res.redirect('/');
+});
+
+
 
 app.listen(PORT,function(){
     console.log("server started on port "+PORT+" bro!");
