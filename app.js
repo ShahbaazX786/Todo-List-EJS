@@ -86,7 +86,10 @@ const listSchema = new mongoose.Schema({
 
 const List = new mongoose.model("List",listSchema);
 
+
 // this is called as a dynamic route as the :id value can be anything.
+// this will find if there is any list with same name already present in the db, if so, then it will use the same document
+// else it will create a new one and redirects to dynamic route after saving the new dynamic route list name into the db.
 app.get('/:id',function(req,res){
     const customlistname = req.params.id;
 
