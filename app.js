@@ -58,7 +58,7 @@ app.get("/", function(req,res){
                     console.log(err);
                 }
                 else{
-                    console.log('Data successfully entered into the DB!');
+                    console.log('Default array was empty so default Data successfully entered into the DB!');
                 }
             });
             res.redirect('/'); // redirects to home route after adding the default items to the mongodb to display items in the list.ejs
@@ -81,6 +81,19 @@ app.post('/',function(req,res){
     res.redirect('/');
 });
 
+app.post('/delete',function(req,res){
+    // console.log(req.body.checkboxstatus);
+    const deletetask = req.body.checkboxstatus;
+    Item.findByIdAndRemove(deletetask,function(err){
+        if(err){
+            console.log(err);
+        }
+        else{
+            console.log('Task deleted sucessfully!');
+        }
+    });
+    res.redirect('/');
+});
 
 
 app.get('/work',function(req,res){
