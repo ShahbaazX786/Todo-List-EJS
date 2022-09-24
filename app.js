@@ -89,24 +89,25 @@ const List = new mongoose.model("List",listSchema);
 // this is called as a dynamic route as the :id value can be anything.
 app.get('/:id',function(req,res){
     const customlistname = req.params.id;
-    const list = new List({
-        name:customlistname,
-        items: default_Array
+
+    
+    List.findOne({name:customlistname},function(err,resultantlist){
+        if(!err){
+            if(!resultantlist){
+                // console.log('This name doesnt exist bro!');
+                const list = new List({
+                    name:customlistname,
+                    items: default_Array
+                });
+                list.save();
+                res.redirect('/'+customlistname);
+            }
+            else{
+                // console.log('this name already exists bro!');
+                res.render("list",{list_title:resultantlist.name,taskArray:resultantlist.items,dayofweek:day});
+            }
+        }
     });
-    list.save();
-});
-
-
-
-List.findOne({name:customlistname},function(err,resultantlist){
-    if(!err){
-        if(!resultantlist){
-            console.log('This name doesnt exist bro!');
-        }
-        else{
-            console.log('this name already exists bro!');
-        }
-    }
 });
 
 
