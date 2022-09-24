@@ -73,16 +73,12 @@ app.get("/", function(req,res){
 
 
 app.post('/',function(req,res){
-    newTask=req.body.task;
-    title=req.body.list;
-    if(title === "home"){
-        task_array.push(newTask);
-        res.redirect('/');
-    }
-    else if (title === "work"){
-        work_array.push(newTask);
-        res.redirect('/work');
-    }
+    const newTask=req.body.task;
+    const item = new Item({
+        name:newTask
+    });
+    item.save();
+    res.redirect('/');
 });
 
 
