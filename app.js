@@ -71,7 +71,7 @@ app.get("/", function(req,res){
             res.redirect('/'); // redirects to home route after adding the default items to the mongodb to display items in the list.ejs
         }
         else{
-            res.render("list", {taskArray:foundItems,list_title:"home",dayofweek:day});
+            res.render("list", {taskArray:foundItems,list_title:"Today",dayofweek:day});
         }
     });
 });
@@ -120,11 +120,23 @@ app.get('/:id',function(req,res){
 //creates a new task in the home route list and redirects to home route(/) to update the task list.
 app.post('/',function(req,res){
     const newTask=req.body.task;
+    const newList = req.body.list;
+
     const item = new Item({
         name:newTask
     });
-    item.save();
-    res.redirect('/');
+
+    if(newList==='Today'){
+        item.save();
+        res.redirect('/');
+    }
+    else{
+        List.findOne({name:newList},function(err,foundList){
+            foundList.items.push(item);
+            foundList.save();
+            res.redirect("/"+newList);
+        });
+    }
 });
 
 
