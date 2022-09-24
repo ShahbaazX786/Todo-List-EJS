@@ -91,7 +91,7 @@ const List = new mongoose.model("List",listSchema);
 // this will find if there is any list with same name already present in the db, if so, then it will use the same document
 // else it will create a new one and redirects to dynamic route after saving the new dynamic route list name into the db.
 app.get('/:id',function(req,res){
-    const customlistname = _.capitalize(req.params.id);
+    const customlistname = _.capitalize(req.params.id); //this makes sure that even though we type different cases in url bar llke Home, HOME,HoMe,hOmE,home are all the same.
 
     
     List.findOne({name:customlistname},function(err,resultantlist){
