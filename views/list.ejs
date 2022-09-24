@@ -5,14 +5,14 @@
     <h1>Today is <%= dayofweek %></h1>
 </div>
 <div class="box">
-    <% for(var i=0;i<taskArray.length;i++){ %>
+    <% taskArray.forEach(function(task){ %>
         <div class="item">
             <input type="checkbox">
             <p>
-                <%= taskArray[i] %>
+                <%= task.name %>
             </p>
         </div>
-        <% } %>
+      <%  }); %>
         <form action="/" method="post">
             <input type="text" name="task" placeholder="Add a new task here" autocomplete="off">
             <button type="submit" name="list" value="<%=list_title %>">+</button>

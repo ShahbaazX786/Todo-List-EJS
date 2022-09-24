@@ -41,26 +41,32 @@ const item3 = new Item({
 
 const default_Array = [item1,item2,item3];
 
-Item.insertMany(default_Array,function(err){
-    if(err){
-        console.log(err);
-    }
-    else{
-        console.log('Data successfully entered into the DB!');
-    }
-});
-
-
-let task_array=[];
-let work_array=[];
-let newTask="";
+// let task_array=[];
+// let work_array=[];
+// let newTask="";
 const day=date.getDay();
 
 
 
 
 app.get("/", function(req,res){
-    res.render("list", {taskArray:task_array,list_title:"home",dayofweek:day});
+    
+    Item.find({} ,function(err,foundItems){
+        if(foundItems.length === 0){
+            Item.insertMany(default_Array,function(err){
+                if(err){
+                    console.log(err);
+                }
+                else{
+                    console.log('Data successfully entered into the DB!');
+                }
+            });
+            res.redirect('/'); // redirects to home route after adding the default items to the mongodb to display items in the list.ejs
+        }
+        else{
+            res.render("list", {taskArray:foundItems,list_title:"home",dayofweek:day});
+        }
+    });
 });
 
 
