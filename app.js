@@ -23,6 +23,12 @@ mongoose.connect(URL,function(err){
     }
 });
 
+const itemsSchema = new mongoose.Schema({
+    name:String,
+});
+
+const Item = new mongoose.model("Item",itemsSchema);
+
 let task_array=[];
 let work_array=[];
 let newTask="";
