@@ -7,6 +7,7 @@ inshort MEEN stack lol.
 - N --> NodeJS
 
 ##### [Link to the deployed version](https://todolistusingejs2022.herokuapp.com/)
+>Note: Link available only upto November 2022 due to heroku free tier decesions.
 
 ### EJS
 
