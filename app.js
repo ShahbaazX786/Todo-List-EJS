@@ -43,13 +43,13 @@ const Item = new mongoose.model("Item",itemsSchema);
 
 // creating temporary documents(records) and adding them into the default_Array.
 const item1 = new Item({
-    name:"Sternritters of Bleach"
+    name:"Sterritters of bleach"
 });
 const item2 = new Item({
-    name:"Bankai of Bleach"
+    name:"<-- click on the checkbox to delete the entry."
 });
 const item3 = new Item({
-    name:"Shikai of Bleach"
+    name:"Sometimes the db is slower to update the records so refresh page once."
 });
 
 const default_Array = [item1,item2,item3];
