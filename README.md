@@ -1,5 +1,12 @@
-# Todo List App
+# Todo List App V3 (MEEN stack)
 > Made with HTML, CSS, Javascript, Node, ExpressJS, and EJS(Embedded Javascript).
+inshort MEEN stack lol.
+- M --> MongoDB
+- E --> ExpressJS
+- E --> EJS
+- N --> NodeJS
+
+##### [Link to the deployed version](https://todolistusingejs2022.herokuapp.com/)
 
 ### EJS
 
@@ -21,15 +28,23 @@ Using :```app.set("view engine", "ejs");```
 Using:```app.use(express.static("public"));``` 
 
 #### 1. Home List Page
-![Screenshot-1](./public/css/assets/Readme%20screenshots/Screenshot%20(1135).png)
+![Screenshot-1](./public/css/assets/Readme%20screenshots/1.png)
 
 #### 2. Adding tasks to list
-![Screenshot-2](./public/css/assets/Readme%20screenshots/Screenshot%20(1137).png)
+![Screenshot-2](./public/css/assets/Readme%20screenshots/2.png)
 
 #### 3. Work List
-![Screenshot-3](./public/css/assets/Readme%20screenshots/Screenshot%20(1139).png)
+![Screenshot-3](./public/css/assets/Readme%20screenshots/3.png)
 
 #### 4. Get Day function using an exported module
-![Screenshot-4](./public/css/assets/Readme%20screenshots/Screenshot%20(1142).png)
+![Screenshot-4](./public/css/assets/Readme%20screenshots/4.png)
 
 PS: You are free to contribute to this project via a PR.
+
+#### 5. Using MongoDB for persistent storage
+Used MongoDB atlas free tier to host our database and also to manage data need.(Adding,deleting the tasks from the list also maintaining other dynamic routing pages.)
+![Screenshot-5](./public/css/assets/Readme%20screenshots/5.png)
+
+#### 6. Using Heroku for server(nodejs app)
+Used Heroku to host our node app (server environment) which returns response when we send some requests to our app.
+![Screenshot-6](./public/css/assets/Readme%20screenshots/6.png)
