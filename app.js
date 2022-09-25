@@ -176,6 +176,6 @@ app.post('/delete',function(req,res){
 
 
 
-app.listen(PORT,function(){
+app.listen(PORT,function(){ //port needs to be dynamic as heroku will allocate a port number so keep it as process.env.port || 3000 which means it will either run on port given by heroku server or port 3000.
     console.log("server started on port "+PORT+" bro!");
 });
