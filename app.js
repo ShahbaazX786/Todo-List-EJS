@@ -108,6 +108,7 @@ app.get('/:id',function(req,res){
                 });
                 list.save();
                 res.redirect('/'+customlistname);
+                // res.redirect('/'+customlistname);//for faster mongodb updates
             }
             else{
                 // console.log('this name already exists bro!');
@@ -132,6 +133,7 @@ app.post('/',function(req,res){
 
     if(newList==='Today'){
         item.save();
+        console.log("Task added sucessfully");
         res.redirect('/');
     }
     else{
