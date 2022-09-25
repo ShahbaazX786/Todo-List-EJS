@@ -17,10 +17,11 @@ app.set("view engine", "ejs"); // this command sets the default view engine to e
 const day=date.getDay();
 
 //this is causing handshake error so commened.
-// const username = encodeURIComponent('admin-boii');
-// const password = encodeURIComponent('LDZAsyGhMVI35UJf');
+// const username = encodeURIComponent('admin-boii');deleted now
+// const password = encodeURIComponent('LDZAsyGhMVI35UJf');deleted now
 
-let URI = "mongodb+srv://admin-boii:LDZAsyGhMVI35UJf@cluster0.tpzft0k.mongodb.net/todolistDB"; //mongodb atlas link
+
+let URI = "mongodb+srv://readandwriteonly:RUOiqgPXFVXmaYTW@cluster0.tpzft0k.mongodb.net/todolistDB"; //mongodb atlas link
 // const URL='mongodb://0.0.0.0:27017/todolistDB'; //local mongodb link
 mongoose.connect(URI,function(err){
     if(err){
