@@ -22,7 +22,7 @@ const day=date.getDay();
 
 
 let URI = "mongodb+srv://readandwriteonly:RUOiqgPXFVXmaYTW@cluster0.tpzft0k.mongodb.net/todolistDB"; //mongodb atlas link
-// const URL='mongodb://0.0.0.0:27017/todolistDB'; //local mongodb link
+// const URL='mongodb://0.0.0.0:27017/todolistDB'; //local mongodb link, also use 127.0.0.1 or 0.0.0.0 instead of localhost in mongodb v5+.
 mongoose.connect(URI,function(err){
     if(err){
         console.error(err);
